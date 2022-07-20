@@ -4,6 +4,16 @@ export function FooterContainer() {
   return (
     <Footer>
       <Footer.Title>Questions? Contact us!</Footer.Title>
+      <Footer.Break />
+      <Footer.Row>
+        <Footer.Column>
+          <Footer.Link href="#">FAQ</Footer.Link>
+          <Footer.Link href="#">Investor Relations</Footer.Link>
+          <Footer.Link href="#">Ways to Watch</Footer.Link>
+          <Footer.Link href="#">Coporate Informations</Footer.Link>
+          <Footer.Link href="#">Netflix Originals</Footer.Link>
+        </Footer.Column>
+      </Footer.Row>
     </Footer>
   );
 }
