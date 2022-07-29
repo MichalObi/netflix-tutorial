@@ -4,7 +4,7 @@ import {
   Frame,
   Title,
   Item,
-  Inner, 
+  Inner,
   Header,
   Body
 } from './styles/accordion.js';
@@ -15,7 +15,7 @@ export default function Accordion({ children, ...restProps }) {
   return (
     <Container {...restProps}>
       <Inner>{children}</Inner>
-    </Container>;
+    </Container>
   );
 };
 
@@ -41,7 +41,7 @@ Accordion.Header = function AccordionHeader({ children, ...restProps }) {
   const { toggleShow, setToggleShow } = useState(ToggleContext);
 
   return (
-    <Header onClick={() => setToggleShow((toggleShow) => toggleShow)} {...restProps}>
+    <Header onClick={() => setToggleShow((toggleShow) => !toggleShow)} {...restProps}>
       {children}
     </Header>
   );
