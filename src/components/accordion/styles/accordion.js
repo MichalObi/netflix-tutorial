@@ -14,11 +14,60 @@ export const Inner = styled.div`
 `;
 
 export const Header = styled.div`
+  @media(max-widht: 600px) {
+    width: 16px;
+  }
+
   display: flex;
-  justify-content: space-beetwen;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-bottom: 1px;
+  font-size: 26px;
+  font-weight: normal;
+  background: #303030;
+  padding: 0.8em 1.2em;
+  user-select: none;
+  align-items: center;
+
+  img {
+    @media(max-widht: 600px) {
+      width: 16px;
+    }
+
+    filter: brightness(0) invert(1);
+    width: 24px;
+  }
 `;
 
-export const Body = styled.div``;
+export const Body = styled.div`
+  @media (max-width: 600px) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  font-size: 26px;
+  font-weight: normal;
+  line-height: normal;
+  background: #303030;
+  white-space: pre-wrap;
+  user-select: none;
+  overflow: hidden;
+
+  &.closed {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
+  }
+  &.open {
+    max-height: 1200px;
+    transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
+  }
+
+  span {
+    display: block;
+    padding: 0.8em 2.2em 0.8em 1.2em;
+  }
+`;
 
 export const Frame = styled.div`
   margin-bottom: 40px;
@@ -28,8 +77,12 @@ export const Item = styled.div`
   color: white;
   margin-bottom: 10px;
 
-  &:first-of-type{
+  &:first-of-type {
     margin-top: 3em;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
   }
 `;
 
