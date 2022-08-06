@@ -7,7 +7,7 @@ export const Container = styled.div`
   }
 
   display: flex;
-  justify-conent: center;
+  justify-content: center;
   height: 100%;
   margin-top: 20px;
   flex-wrap: wrap;
@@ -23,9 +23,16 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
+  @media (max-width: 1000px) {
+    height: 50px;
+    font-size: 16px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
   display: flex;
   align-items: center;
-  height: 100%;
+  height: 70px;
   background: #e50914;
   color: white;
   text-transform: uppercase;
@@ -33,6 +40,10 @@ export const Button = styled.button`
   font-size: 23px;
   border: 0;
   cursor: pointer;
+
+  &:hover {
+      background: #f40612;
+  }
 
   img {
     @media (max-width: 1000px) {
@@ -45,4 +56,18 @@ export const Button = styled.button`
   }
 `;
 
-export const Text = styled.p``;
+export const Text = styled.p`
+    @media (max-width: 600px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    font-size: 19.2px;
+    color: white;
+    text-align: center;
+`;
+
+export const Break = styled.div`
+  flex-basis: 100%;
+  height: 0;
+`;
