@@ -1,10 +1,9 @@
   import React from 'react';
-  import { Link as ReactRouterLink } from 'react-router-dom';
-
-  import { Background, Container, Logo } from './styles/header';
+  import { Link as ReachRouterLink } from 'react-router-dom';
+  import { Background, ButtonLink, Container, Logo } from './styles/header';
 
   export default function Header({ bg = true, children, ...restProps }) {
-    return bg ? <Background {...restProps}>{children}</Background> : children;
+    return bg ? <Background {...restProps}>{children}</Background> : (children);
   };
 
   Header.Frame = function HeaderFrame({ children, ...restProps }) {
@@ -12,13 +11,13 @@
   };
 
   Header.ButtonLink = function ButtonLink({ children, ...restProps }) {
-    return <Container {...restProps}>{children}</Container>;
+    return <ButtonLink {...restProps}>{children}</ButtonLink>;
   };
 
   Header.Logo = function HeaderLogo({ to, ...restProps }) {
     return (
-      <ReactRouterLink to={to}>
+      <ReachRouterLink to={to}>
         <Logo {...restProps} />
-      </ReactRouterLink>
+      </ReachRouterLink>
     );
   };
