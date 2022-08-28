@@ -3,14 +3,18 @@ import {createRoot} from 'react-dom/client';
 import App from './app';
 import {GlobalStyles} from './global-styles';
 import 'normalize.css';
+import { firebaseDb } from './lib/firebase.prod';
+import { FirebaseContext } from './context/firebase';
 
 const root = createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
     <>
-      <GlobalStyles />
-      <App />
+      <FirebaseContext.Provider value={{ firebaseDb }}>
+        <GlobalStyles />
+        <App />
+      </FirebaseContext.Provider>
     </>
   </React.StrictMode>
 );

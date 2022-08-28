@@ -1,9 +1,20 @@
-import Firebase from 'firebase/app';
-import 'firebase/ firestore';
-import 'firebase/auth';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
-const config = {};
+import { seedDatabase } from '../seed';
 
-const firebase = Firebase.initializeApp(config);
+const config = {
+ apiKey: "",
+ authDomain: "",
+ projectId: "",
+ storageBucket: "",
+ messagingSenderId: "",
+ appId: ""
+};
 
-export { firebase };
+const firebaseDb = firebase.initializeApp(config);
+
+seedDatabase(firebase);
+
+export { firebaseDb };
