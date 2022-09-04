@@ -6,7 +6,14 @@ import { Form } from '../components';
 export default function Signin() {
   const [emailAddress, setEmailAddress] = useState();
   const [password, setPassword] = useState();
-  const [error, setError] = useState('')
+  const [error, setError] = useState('');
+
+  const isInvalid = password === '' || emailAddress === '';
+  const handleSignin = event => {
+    event.preventDefault();
+
+    // firebase work here!
+  };
 
   return (
     <>
@@ -15,7 +22,7 @@ export default function Signin() {
           <Form.Title>Sign In</Form.Title>
           {error && <Form.Error>{error}</Form.Error>}
 
-          <Form.Base onSubmit={handleSignin}>
+          <Form.Base onSubmit={handleSignin} method="POST">
             <Form.Input
               placeholder="Email address"
               value={emailAddress}
@@ -28,7 +35,7 @@ export default function Signin() {
               value={password}
               onChange={({ target }) => setPassword(target.value)}
             />
-          <Form.Submit disabled={isValid} type="submit">
+          <Form.Submit disabled={isInvalid} type="submit">
             Sign In
           </Form.Submit>
           </Form.Base>
