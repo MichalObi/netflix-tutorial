@@ -20,24 +20,24 @@ export default function Signin() {
       <HeaderContainer>
         <Form>
           <Form.Title>Sign In</Form.Title>
-          {error && <Form.Error>{error}</Form.Error>}
+          // {error && <Form.Error>{error}</Form.Error>}
 
-          <Form.Base onSubmit={handleSignin} method="POST">
+          <Form.Base onSubmit={handleSignin} method="POST ">
             <Form.Input
               placeholder="Email address"
               value={emailAddress}
               onChange={({ target }) => setEmailAddress(target.value)}
             />
-            <Form.Input
-              type="password"
-              placeholder="Password"
-              autoComplete="off"
-              value={password}
-              onChange={({ target }) => setPassword(target.value)}
-            />
-          <Form.Submit disabled={isInvalid} type="submit">
-            Sign In
-          </Form.Submit>
+              <Form.Input
+                type="password"
+                placeholder="Password"
+                autoComplete="off"
+                value={password}
+                onChange={({ target }) => setPassword(target.value)}
+              />
+            <Form.Submit disabled={isInvalid} type="submit">
+              Sign In
+            </Form.Submit>
           </Form.Base>
         </Form>
       </HeaderContainer>
