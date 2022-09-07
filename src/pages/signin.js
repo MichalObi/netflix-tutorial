@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { FirebaseContext } from '../context/firebase';
 import { HeaderContainer } from '../containers/header';
 import { FooterContainer } from '../containers/footer';
 import { Form } from '../components';
 
 export default function Signin() {
-  const [emailAddress, setEmailAddress] = useState();
-  const [password, setPassword] = useState();
+  const { firebase } = useContext(FirebaseContext);
+  const [emailAddress, setEmailAddress] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const isInvalid = password === '' || emailAddress === '';
@@ -13,6 +15,17 @@ export default function Signin() {
     event.preventDefault();
 
     // firebase work here!
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(emailAddress, password)
+      .then(() => {
+        // push to the browse page
+      })
+      .catch((error) => {
+        setEmailAddress('');
+        setPassword('');
+        setError(error.message);
+      });
   };
 
   return (
@@ -38,6 +51,14 @@ export default function Signin() {
             <Form.Submit disabled={isInvalid} type="submit">
               Sign In
             </Form.Submit>
+
+            <Form.Text>
+              New to Netflix? <Form.Link to="/signup">Sign up now.</Form.Link>
+            </Form.Text>
+            <Form.TextSmall>
+              This page is protected by Google reCAPTCHA to ensure you're not a bot.
+              Learn more.
+            </Form.TextSmall>
           </Form.Base>
         </Form>
       </HeaderContainer>
