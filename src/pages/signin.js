@@ -1,10 +1,13 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FirebaseContext } from '../context/firebase';
 import { HeaderContainer } from '../containers/header';
 import { FooterContainer } from '../containers/footer';
 import { Form } from '../components';
+import * as ROUTES from '../constants/routes';
 
 export default function Signin() {
+  const history = useNavigate();
   const { firebase } = useContext(FirebaseContext);
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
@@ -19,7 +22,7 @@ export default function Signin() {
       .auth()
       .signInWithEmailAndPassword(emailAddress, password)
       .then(() => {
-        // push to the browse page
+        history.push(ROUTES.BROWSE);
       })
       .catch((error) => {
         setEmailAddress('');
@@ -33,7 +36,7 @@ export default function Signin() {
       <HeaderContainer>
         <Form>
           <Form.Title>Sign In</Form.Title>
-          // {error && <Form.Error>{error}</Form.Error>}
+          {error && <Form.Error>{error}</Form.Error>}
 
           <Form.Base onSubmit={handleSignin} method="POST ">
             <Form.Input
