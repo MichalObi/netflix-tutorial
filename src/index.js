@@ -11,7 +11,7 @@ const root = createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <>
-      <FirebaseContext.Provider value={{ firebaseDb }}>
+      <FirebaseContext.Provider value={{ firebase: firebaseDb }}>
         <GlobalStyles />
         <App />
       </FirebaseContext.Provider>
