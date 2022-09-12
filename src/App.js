@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home, Browse, Signin, Signup } from './pages';
 import * as ROUTES from './constants/routes';
+import { IsUserRedirect } from './helpers/routes';
 
 export default function App() {
   return (

@@ -7,7 +7,7 @@ import { Form } from '../components';
 import * as ROUTES from '../constants/routes';
 
 export default function Signup() {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const { firebase } = useContext(FirebaseContext);
 
   const [firstName, setFirstName] = useState('');
@@ -29,7 +29,7 @@ export default function Signup() {
           photoURL: Math.floor(Math.random() * 5) + 1,
         })
         .then(() => {
-          history(ROUTES.BROWSE);
+          navigate(ROUTES.BROWSE);
         })
         .catch(error => {
           setFirstName('');
