@@ -6,6 +6,21 @@ export default function useContent(target) {
   const { firebase } = useContext(FirebaseContext);
 
   useEffect(() => {
+    firebase
+      .firestore()
+      .collection(target)
+      .get()
+      .then(snapshot => {
+        const allContent = snapshot.docs.map(contentObj => ({
+          ...contentObj.data(),
+          docId: contentObj.id,
+        }));
+        setContent(allContent);
+      })
+      .catch(error => {
 
+      });
   }, []);
+
+  return { [target]: content };
 }
