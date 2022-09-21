@@ -1,4 +1,4 @@
-export default function selectionMap({ series, films }) {
+export default function selectionFilter({ series, films }) {
   return {
     series: [
       {
@@ -8,6 +8,36 @@ export default function selectionMap({ series, films }) {
       {
         title: 'Comedies',
         data: series.filter(item => item.genre === 'comedies')
+      },
+      {
+        title: 'Children',
+        data: series.filter(item => item.genre === 'children')
+      },
+      {
+        title: 'Feel Good',
+        data: series.filter(item => item.genre === 'feel-good')
+      }
+    ],
+    films: [
+      {
+        title: 'Drama',
+        data: films.filter(item => item.genre === 'drama')
+      },
+      {
+        title: 'Thriller',
+        data: films.filter(item => item.genre === 'thriller')
+      },
+      {
+        title: 'Children',
+        data: films.filter(item => item.genre === 'children')
+      },
+      {
+        title: 'Suspense',
+        data: films.filter(item => item.genre === 'suspense')
+      },
+      {
+        title: 'Romance',
+        data: films.filter(item => item.genre === 'romance')
       }
     ]
   }
