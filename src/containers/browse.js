@@ -1,20 +1,13 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { SelectProfileContainer } from './profiles';
+import React, { useContext, useState } from 'react';
+import { selectProfileContainer } from './profiles';
 import { FirebaseContext } from '../context/firebase';
 
 export function BrowseContainer({ slides }) {
-  const [profile, setProfile] = useState({}),
-        [loading, setLoading] = useState(true);
+  const [profile, setProfile] = useState({});
+  const {firebase} = useContext(FirebaseContext);
+  const user = firebase.auth().currentUser || {};
 
-  const { firebase } = useContext(FirebaseContext),
-          user = firebase.auth().currentUser || {};
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, [profile.displayName]);
-
-  return <SelectProfileContainer
-          user={user} setProfile={setProfile} />
+  return <selectProfileContainer
+          user={user} 
+          setProfile={setProfile}/>;
 }
