@@ -1,6 +1,6 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
-import {App} from './app';
+import {App} from './App';
 import {GlobalStyles} from './global-styles';
 import 'normalize.css';
 import { firebaseDb } from './lib/firebase.prod';

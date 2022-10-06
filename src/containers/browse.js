@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { selectProfileContainer } from './profiles';
+import React, { useContext, useState, useEffect } from 'react';
+import { SelectProfileContainer } from './profiles';
 import { FirebaseContext } from '../context/firebase';
 import { Loading } from '../components';
 
@@ -15,7 +15,7 @@ export function BrowseContainer({ slides }) {
     }, 3000);
   }, [profile.displayName]);
 
-  return <selectProfileContainerW
+  return <SelectProfileContainer
           user={user}
-          setProfile={setProfile}/>;
+          setProfile={setProfile} />
 }
