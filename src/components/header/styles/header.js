@@ -58,3 +58,14 @@ export const ButtonLink = styled(ReachRouterLink)`
     background: #f40612;
   }
 `;
+
+export const Feature = styled(Container)`
+  @media (max-width: 1100px) {
+      display: none;
+  }
+
+  padding: 150px 0 500px 0;
+  flex-direction: column;
+  align-items: normal;
+  width: 50%;
+`;
