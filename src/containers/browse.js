@@ -11,7 +11,6 @@ export function BrowseContainer({ slides }) {
 
   useEffect(() => {
     setTimeout(() => {
-      console.log('user', user);
       setLoading(false);
     }, 3000);
   }, [profile.displayName]);
@@ -22,6 +21,7 @@ export function BrowseContainer({ slides }) {
 
       <Header src="joker1">
         <Header.Feature>
+        <Header.FeatureCallOut>Watch Joker NOW</Header.FeatureCallOut>
           <Header.Text>
             lorem impsum
           </Header.Text>
