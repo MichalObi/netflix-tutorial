@@ -18,6 +18,10 @@
     return <Text {...restProps}>{children}</Text>;
   }
 
+  Header.TextLink = function HeaderTextLink({ children, ...restProps }) {
+    return <Link {...restProps}>{children}</Link>;
+  }
+
   Header.Frame = function HeaderFrame({ children, ...restProps }) {
     return <Container {...restProps}>{children}</Container>;
   };
