@@ -78,6 +78,22 @@ export const Text = styled.p`
   margin: 0;
 `;
 
+export const Link = styled.p`
+  &:hover {
+    font-weight: bold;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  color: white;
+  text-decoration: none;
+  margin-right: 30px;
+  font-weight: ${({ active }) => (active === 'true' ? '700': 'normal')};
+  cursor: pointer;
+`;
+
 export const FeatureCallOut = styled.h2`
   color: white;
   font-size: 22px;
