@@ -23,9 +23,17 @@ export function BrowseContainer({ slides }) {
 
       <Header src="joker1" dontShowOnSmallViewPort>
         <Header.Frame>
-          <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
-          <Header.TextLink>Series</Header.TextLink>
-          <Header.TextLink>Films</Header.TextLink>
+          <Header.Group>
+            <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
+            <Header.TextLink>Series</Header.TextLink>
+            <Header.TextLink>Films</Header.TextLink>
+          </Header.Group>
+          <Header.Group>
+            <Header.Profile>
+              <Header.Picture src={user.photoURL} />
+              <Header.TextLink>{user.displayName}</Header.TextLink>
+            </Header.Profile>
+          </Header.Group>
         </Header.Frame>
         <Header.Feature>
           <Header.FeatureCallOut>Watch Joker NOW</Header.FeatureCallOut>

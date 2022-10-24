@@ -1,6 +1,6 @@
   import React from 'react';
   import { Link as ReachRouterLink } from 'react-router-dom';
-  import { Background, ButtonLink, Container, Logo, Feature, Text, FeatureCallOut, Link, Group } from './styles/header';
+  import { Background, ButtonLink, Container, Logo, Feature, Text, FeatureCallOut, Link, Group, Profile, Picture } from './styles/header';
 
   export default function Header({ bg = true, children, ...restProps }) {
     return bg ? <Background {...restProps}>{children}</Background> : children;
@@ -32,6 +32,14 @@
 
   Header.ButtonLink = function HeaderButtonLink({ children, ...restProps }) {
     return <ButtonLink {...restProps}>{children}</ButtonLink>;
+  };
+
+  Header.Profile = function HeaderProfile({ children, ...restProps }) {
+    return <Profile {...restProps}>{children}</Profile>;
+  };
+
+  Header.Picture = function HeaderPicture({ src, ...restProps }) {
+    return <Picture {...restProps} src={`/images/users/${src}.png`} />;
   };
 
   Header.Logo = function HeaderLogo({ to, ...restProps }) {
