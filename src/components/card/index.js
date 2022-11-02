@@ -12,3 +12,15 @@ export default function Card({ children, ...restProps }) {
     </FeatureContext.Provider>
   );
 }
+
+ Card.Group = function CardGroup({ children, ...restProps }) {
+   return <Group {...restProps}>{children}</Group>
+ };
+
+ Card.Title = function CardTitle({ children, ...restProps }) {
+   return <Title {...restProps}>{children}</Title>
+ };
+
+ Card.SubTitle = function CardSubTitle({ children, ...restProps }) {
+   return <SubTitle {...restProps}>{children}</SubTitle>
+ };
