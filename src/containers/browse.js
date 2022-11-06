@@ -5,18 +5,24 @@ import { Loading, Header } from '../components';
 import * as ROUTES from '../constants/routes';
 import logo from '../logo.svg';
 
-export function BrowseContainer({ slides }) {
+export function BrowseContainer({  }) {
+  const [category, setCategory] = useState('series');
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const {firebase} = useContext(FirebaseContext);
   const user = firebase.auth().currentUser || {};
+  const [slideRows setSlideRows] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 3000);
   }, [profile.displayName]);
+
+  useEffect(() => {
+    setSlideRows(slides[category]);
+  }, [);
 
   return profile.displayName ? (
     <>
@@ -56,6 +62,9 @@ export function BrowseContainer({ slides }) {
           <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
       </Header>
+
+      <Card.Group>
+      </Card.Group>
     </>
   ) : (
     <SelectProfileContainer
