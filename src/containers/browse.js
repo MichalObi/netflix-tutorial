@@ -22,7 +22,7 @@ export function BrowseContainer({  }) {
 
   useEffect(() => {
     setSlideRows(slides[category]);
-  }, [);
+  }, [slides, category]);
 
   return profile.displayName ? (
     <>
@@ -32,8 +32,16 @@ export function BrowseContainer({  }) {
         <Header.Frame>
           <Header.Group>
             <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
-            <Header.TextLink>Series</Header.TextLink>
-            <Header.TextLink>Films</Header.TextLink>
+            <Header.TextLink
+             active={category === 'series' ? 'true' : 'false'}
+             onClick={() => setCategory('series')}>
+              Series
+            </Header.TextLink>
+            <Header.TextLink
+              active={category === 'films' ? 'true' : 'false'}
+              onClick={() => setCategory('films')}>
+              Films
+            </Header.TextLink>
           </Header.Group>
           <Header.Group>
             <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
