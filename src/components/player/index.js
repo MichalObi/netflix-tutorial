@@ -17,5 +17,13 @@ export default function Player({ children, ...restProps }) {
 Player.Video = funciton PlayerVideo({ src, ...restProps }) {
   const { showPlayer, setShowPlayer } = useContext(PlayerContext);
 
-  return showPlayer;
+  return showPlayer ? ReactDOM.createPortal(
+    <Overlay onClick={() => setShowPlayer(false)}>
+      <Inner>
+        <video id="netflix-player" controls>
+          <source src={src} type="video/mp4" />
+        </video>
+      </Inner>
+    </Overlay>
+  ) : null;
 }
