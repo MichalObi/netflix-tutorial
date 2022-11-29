@@ -14,7 +14,7 @@ export default function Player({ children, ...restProps }) {
   );
 }
 
-Player.Video = funciton PlayerVideo({ src, ...restProps }) {
+Player.Video = function PlayerVideo({ src, ...restProps }) {
   const { showPlayer, setShowPlayer } = useContext(PlayerContext);
 
   return showPlayer ? ReactDOM.createPortal(
@@ -27,3 +27,13 @@ Player.Video = funciton PlayerVideo({ src, ...restProps }) {
     </Overlay>
   ) : null;
 }
+
+Player.Button = function PlayerButton({ ...restProps }) {
+  const { showPlayer, setShowPlayer } = useContext(PlayerContext);
+
+  return (
+    <Button onClick={() => setShowPlayer(showPlayer => !showPlayer)}>
+      Play
+    </Button>
+  );
+};
