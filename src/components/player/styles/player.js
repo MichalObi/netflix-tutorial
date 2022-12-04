@@ -15,7 +15,17 @@ export const Overlay = styled.div`
   margin: 0 20px;
 `;
 
-export const Inner = styled.div``;
+export const Inner = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+
+  video {
+    height: 100%;
+    width: 100%;
+  }
+`;
 
 export const Close = styled.button``;
 
